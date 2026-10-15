@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import { useState } from 'react'
 
 export default function Home() {
   function copy(text, btn) {
@@ -16,6 +17,26 @@ export default function Home() {
       btn.classList.add('copied')
       setTimeout(() => { btn.textContent = 'Copier'; btn.classList.remove('copied') }, 2000)
     })
+  }
+
+  const [form, setForm] = useState({ nom: '', email: '', prestation: '', message: '' })
+  const [status, setStatus] = useState(null) // null | 'sending' | 'ok' | 'error'
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    setStatus('sending')
+    try {
+      const res = await fetch('/api/devis', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      })
+      if (!res.ok) throw new Error()
+      setStatus('ok')
+      setForm({ nom: '', email: '', prestation: '', message: '' })
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -49,6 +70,7 @@ export default function Home() {
             <li><a href="#realisations">Réalisations</a></li>
             <li><a href="#experience">Expérience</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#devis">Devis</a></li>
           </ul>
         </div>
       </nav>
@@ -245,6 +267,94 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* DEVIS */}
+      <section className="section" id="devis">
+        <div className="section-inner">
+          <h2 className="section-title">Demande de devis</h2>
+          <div className="section-rule" aria-hidden="true" />
+          <p style={{fontSize:'.95rem', color:'var(--fg-soft)', maxWidth:'58ch', marginBottom:'2rem'}}>
+            Décrivez votre projet, je vous recontacte sous 48h.
+          </p>
+
+          {status === 'ok' ? (
+            <p style={{color:'#4caf50', fontFamily:'Syne, sans-serif', fontWeight:'600'}}>
+              ✓ Demande envoyée ! Je vous recontacte rapidement.
+            </p>
+          ) : (
+            <form onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column', gap:'1.2rem', maxWidth:'560px'}}>
+              <div style={{display:'flex', gap:'1rem', flexWrap:'wrap'}}>
+                <div style={{flex:'1', minWidth:'200px', display:'flex', flexDirection:'column', gap:'.4rem'}}>
+                  <label htmlFor="nom" style={{fontSize:'.8rem', letterSpacing:'.08em', textTransform:'uppercase', color:'var(--fg-soft)'}}>Nom *</label>
+                  <input
+                    id="nom"
+                    type="text"
+                    required
+                    value={form.nom}
+                    onChange={e => setForm({...form, nom: e.target.value})}
+                    style={{padding:'.65rem .9rem', border:'1px solid var(--border)', borderRadius:'4px', background:'var(--bg)', color:'var(--fg)', fontSize:'1rem'}}
+                  />
+                </div>
+                <div style={{flex:'1', minWidth:'200px', display:'flex', flexDirection:'column', gap:'.4rem'}}>
+                  <label htmlFor="email" style={{fontSize:'.8rem', letterSpacing:'.08em', textTransform:'uppercase', color:'var(--fg-soft)'}}>E-mail *</label>
+                  <input
+                    id="email"
+                    type="email"
+                    required
+                    value={form.email}
+                    onChange={e => setForm({...form, email: e.target.value})}
+                    style={{padding:'.65rem .9rem', border:'1px solid var(--border)', borderRadius:'4px', background:'var(--bg)', color:'var(--fg)', fontSize:'1rem'}}
+                  />
+                </div>
+              </div>
+
+              <div style={{display:'flex', flexDirection:'column', gap:'.4rem'}}>
+                <label htmlFor="prestation" style={{fontSize:'.8rem', letterSpacing:'.08em', textTransform:'uppercase', color:'var(--fg-soft)'}}>Type de prestation</label>
+                <select
+                  id="prestation"
+                  value={form.prestation}
+                  onChange={e => setForm({...form, prestation: e.target.value})}
+                  style={{padding:'.65rem .9rem', border:'1px solid var(--border)', borderRadius:'4px', background:'var(--bg)', color:'var(--fg)', fontSize:'1rem'}}
+                >
+                  <option value="">— Choisir —</option>
+                  <option value="Électronique / PCB">Électronique / PCB</option>
+                  <option value="Programmation microcontrôleur">Programmation microcontrôleur</option>
+                  <option value="Impression 3D">Impression 3D</option>
+                  <option value="Informatique / Dépannage">Informatique / Dépannage</option>
+                  <option value="Autre">Autre</option>
+                </select>
+              </div>
+
+              <div style={{display:'flex', flexDirection:'column', gap:'.4rem'}}>
+                <label htmlFor="message" style={{fontSize:'.8rem', letterSpacing:'.08em', textTransform:'uppercase', color:'var(--fg-soft)'}}>Votre projet *</label>
+                <textarea
+                  id="message"
+                  required
+                  rows={5}
+                  value={form.message}
+                  onChange={e => setForm({...form, message: e.target.value})}
+                  style={{padding:'.65rem .9rem', border:'1px solid var(--border)', borderRadius:'4px', background:'var(--bg)', color:'var(--fg)', fontSize:'1rem', resize:'vertical'}}
+                />
+              </div>
+
+              {status === 'error' && (
+                <p style={{color:'#e53935', fontSize:'.9rem', margin:0}}>
+                  Une erreur s&apos;est produite. Réessayez ou contactez-moi par e-mail.
+                </p>
+              )}
+
+              <button
+                type="submit"
+                disabled={status === 'sending'}
+                className="hero-cta"
+                style={{alignSelf:'flex-start'}}
+              >
+                {status === 'sending' ? 'Envoi…' : 'Envoyer la demande'}
+              </button>
+            </form>
+          )}
         </div>
       </section>
 
