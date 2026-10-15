@@ -33,8 +33,17 @@ export default function Home() {
       <nav>
         <div className="nav-inner">
           <a href="#" className="nav-logo">
-            Av<span className="accent">Concept</span><span className="soft">31</span>
-          </a>
+  <svg xmlns="http://www.w3.org/2000/svg" width="200" height="46" viewBox="0 0 280 62">
+    <text fontFamily="Syne, sans-serif" fontWeight="800" fontSize="36" fill="currentColor" x="0" y="36" letterSpacing="-1">Av</text>
+    <text fontFamily="Syne, sans-serif" fontWeight="700" fontSize="36" fill="currentColor" x="52" y="36" letterSpacing="-1">Concept</text>
+    <text fontFamily="Syne, sans-serif" fontWeight="800" fontSize="36" fill="#e07b2a" x="224" y="36">31</text>
+    <line x1="224" y1="44" x2="258" y2="44" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
+    <line x1="258" y1="44" x2="258" y2="54" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
+    <line x1="258" y1="54" x2="270" y2="54" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
+    <circle cx="270" cy="54" r="6" fill="#e07b2a"/>
+    <circle cx="270" cy="54" r="2.5" fill="#0f0f0f"/>
+  </svg>
+</a>
           <ul className="nav-links">
             <li><a href="#services">Services</a></li>
             <li><a href="#realisations">Réalisations</a></li>
