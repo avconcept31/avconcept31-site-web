@@ -70,7 +70,7 @@ export default function Home() {
             <li><a href="#realisations">Réalisations</a></li>
             <li><a href="#experience">Expérience</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#devis">Devis</a></li>
+            <li><a href="#projets">Vos projets</a></li>
           </ul>
         </div>
       </nav>
@@ -270,18 +270,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* DEVIS */}
-      <section className="section" id="devis">
+      {/* VOS PROJETS */}
+      <section className="section" id="projets">
         <div className="section-inner">
-          <h2 className="section-title">Demande de devis</h2>
+          <h2 className="section-title">Vos projets</h2>
           <div className="section-rule" aria-hidden="true" />
           <p style={{fontSize:'.95rem', color:'var(--fg-soft)', maxWidth:'58ch', marginBottom:'2rem'}}>
-            Décrivez votre projet, je vous recontacte sous 48h.
+            Une idée, un projet à concrétiser ? Décrivez-le, je vous réponds rapidement.
           </p>
 
           {status === 'ok' ? (
             <p style={{color:'#4caf50', fontFamily:'Syne, sans-serif', fontWeight:'600'}}>
-              ✓ Demande envoyée ! Je vous recontacte rapidement.
+              ✓ Message envoyé ! Je vous recontacte rapidement.
             </p>
           ) : (
             <form onSubmit={handleSubmit} style={{display:'flex', flexDirection:'column', gap:'1.2rem', maxWidth:'560px'}}>
@@ -311,7 +311,7 @@ export default function Home() {
               </div>
 
               <div style={{display:'flex', flexDirection:'column', gap:'.4rem'}}>
-                <label htmlFor="prestation" style={{fontSize:'.8rem', letterSpacing:'.08em', textTransform:'uppercase', color:'var(--fg-soft)'}}>Type de prestation</label>
+                <label htmlFor="prestation" style={{fontSize:'.8rem', letterSpacing:'.08em', textTransform:'uppercase', color:'var(--fg-soft)'}}>Type de projet</label>
                 <select
                   id="prestation"
                   value={form.prestation}
@@ -351,7 +351,7 @@ export default function Home() {
                 className="hero-cta"
                 style={{alignSelf:'flex-start'}}
               >
-                {status === 'sending' ? 'Envoi…' : 'Envoyer la demande'}
+                {status === 'sending' ? 'Envoi…' : 'Envoyer'}
               </button>
             </form>
           )}
@@ -361,9 +361,9 @@ export default function Home() {
       {/* FOOTER */}
       <footer>
         <div className="footer-inner">
-          <p className="footer-copy">© 2024 AvConcept31 — Alain Vidal</p>
+          <p className="footer-copy">© 2026 AvConcept31 — Alain Vidal</p>
           <ul className="footer-links">
-            <li><a href="#">Mentions légales</a></li>
+            <li><a href="/legal">Mentions légales</a></li>
             <li><a href="#">Confidentialité</a></li>
           </ul>
         </div>
