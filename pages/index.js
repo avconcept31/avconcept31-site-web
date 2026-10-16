@@ -174,12 +174,20 @@ export default function Home() {
           </p>
           <div className="gallery-grid">
             <div className="gallery-item">
-              <img src="/images/coffret.jpg" alt="Coffret électronique avconcept31 câblé" />
-              <span className="gallery-item-label">Coffret câblé</span>
+              <img src="/images/robot-arduino.jpg" alt="Robot roulant Arduino avec châssis imprimé 3D et PCB custom" />
+              <span className="gallery-item-label">Robot Arduino</span>
             </div>
             <div className="gallery-item">
-              <img src="/images/pcb-assemble.jpg" alt="PCB assemblé dans coffret blanc" />
-              <span className="gallery-item-label">PCB sur mesure</span>
+              <img src="/images/plotteur-xy.jpg" alt="Machine XY plotter CNC avec pièces imprimées 3D orange" />
+              <span className="gallery-item-label">Plotter XY</span>
+            </div>
+            <div className="gallery-item">
+              <img src="/images/plotteur-pcb-xy.jpg" alt="Plotter PCB gravure XY motorisé" />
+              <span className="gallery-item-label">Gravure PCB</span>
+            </div>
+            <div className="gallery-item">
+              <img src="/images/pcb-esp8266.jpg" alt="PCB maison ESP8266 avec relais et LEDs" />
+              <span className="gallery-item-label">PCB ESP8266</span>
             </div>
             <div className="gallery-item">
               <img src="/images/cad-moteur.jpg" alt="Rendu CAO — support moteur imprimé 3D" />
