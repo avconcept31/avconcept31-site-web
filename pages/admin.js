@@ -19,7 +19,7 @@ export default function Admin() {
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'system-ui', maxWidth: '900px', margin: '0 auto' }}>
-      <h1 style={{ marginBottom: '1.5rem' }}>Demandes de devis</h1>
+      <h1 style={{ marginBottom: '1.5rem' }}>Vos projets</h1>
       {loading && <p>Chargement…</p>}
       {!loading && devis.length === 0 && <p>Aucune demande.</p>}
       {devis.map(d => (
