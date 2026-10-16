@@ -95,7 +95,7 @@ export default function Home() {
           </div>
           <div className="hero-photo-wrap">
             <span className="hero-photo-label">Atelier</span>
-            <img className="hero-photo-main" src="/images/coffret.jpg" alt="Coffret électronique câblé AvConcept31 — Arduino Nano, relais, connectique" />
+            <img className="hero-photo-main" src="/images/robot-arduino.jpg" alt="Robot roulant Arduino avec châssis imprimé 3D et PCB custom" />
             <img className="hero-photo-badge" src="/images/cnc.jpg" alt="Gravure PCB sur CNC" />
           </div>
         </div>
@@ -174,8 +174,8 @@ export default function Home() {
           </p>
           <div className="gallery-grid">
             <div className="gallery-item">
-              <img src="/images/robot-arduino.jpg" alt="Robot roulant Arduino avec châssis imprimé 3D et PCB custom" />
-              <span className="gallery-item-label">Robot Arduino</span>
+              <img src="/images/coffret.jpg" alt="Coffret électronique câblé AvConcept31" />
+              <span className="gallery-item-label">Coffret câblé</span>
             </div>
             <div className="gallery-item">
               <img src="/images/plotteur-xy.jpg" alt="Machine XY plotter CNC avec pièces imprimées 3D orange" />
