@@ -364,7 +364,7 @@ export default function Home() {
           <p className="footer-copy">© 2026 AvConcept31 — Alain Vidal</p>
           <ul className="footer-links">
             <li><a href="/legal">Mentions légales</a></li>
-            <li><a href="#">Confidentialité</a></li>
+            <li><a href="/confidentialite">Confidentialité</a></li>
           </ul>
         </div>
       </footer>
