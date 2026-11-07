@@ -56,14 +56,14 @@ export default function Home() {
           <a href="#" className="nav-logo">
   <svg xmlns="http://www.w3.org/2000/svg" width="200" height="46" viewBox="0 0 280 62">
     <text fontFamily="Syne, sans-serif" fontWeight="800" fontSize="36" fill="#e07b2a" x="0" y="36" letterSpacing="-1">Av</text>
-    <text fontFamily="Syne, sans-serif" fontWeight="700" fontSize="36" fill="currentColor" x="81" y="36" letterSpacing="-1">oncept</text>
+    <text fontFamily="Syne, sans-serif" fontWeight="700" fontSize="36" fill="currentColor" x="78" y="36" letterSpacing="-1">oncept</text>
     <text fontFamily="Syne, sans-serif" fontWeight="700" fontSize="36" fill="currentColor" x="50" y="36" letterSpacing="-1">C</text>
     <text fontFamily="Syne, sans-serif" fontWeight="800" fontSize="36" fill="#e07b2a" x="200" y="36">31</text>
-    <line x1="218" y1="44" x2="258" y2="44" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
-    <line x1="258" y1="44" x2="258" y2="54" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
-    <line x1="258" y1="54" x2="270" y2="54" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
-    <circle cx="270" cy="54" r="6" fill="#e07b2a"/>
-    <circle cx="270" cy="54" r="2.5" fill="#0f0f0f"/>
+    <line x1="200" y1="44" x2="234" y2="44" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
+    <line x1="234" y1="44" x2="234" y2="54" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
+    <line x1="234" y1="54" x2="246" y2="54" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
+    <circle cx="246" cy="54" r="6" fill="#e07b2a"/>
+    <circle cx="246" cy="54" r="2.5" fill="#0f0f0f"/>
   </svg>
 </a>
           <ul className="nav-links">
