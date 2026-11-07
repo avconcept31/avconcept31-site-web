@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
-import { supabase } from '../lib/supabase'
 
-const MOT_DE_PASSE = 'Nod2026$!.'  // ← change ici
+const MOT_DE_PASSE = 'Nod2026$!.'  // ← change ici si besoin
 
 export default function Admin() {
   const [auth, setAuth]       = useState(false)
@@ -10,14 +9,12 @@ export default function Admin() {
   const [devis, setDevis]     = useState([])
   const [loading, setLoading] = useState(true)
 
-  // Chargement des demandes depuis Supabase
+  // Chargement via API locale (SQLite)
   async function load() {
     setLoading(true)
-    const { data, error } = await supabase
-      .from('devis')
-      .select('*')
-      .order('created_at', { ascending: false })
-    if (!error) setDevis(data)
+    const res = await fetch('/api/admin-devis')
+    const data = await res.json()
+    setDevis(data)
     setLoading(false)
   }
 
@@ -39,20 +36,19 @@ export default function Admin() {
   // Suppression d'une demande
   async function supprimer(id) {
     if (!confirm('Supprimer cette demande ?')) return
-    const { error } = await supabase.from('devis').delete().eq('id', id)
-    if (!error) setDevis(prev => prev.filter(d => d.id !== id))
+    await fetch(`/api/admin-devis?id=${id}`, { method: 'DELETE' })
+    setDevis(prev => prev.filter(d => d.id !== id))
   }
 
   // Toggle traité / non traité
-  // Nécessite une colonne "traite" boolean dans la table Supabase.
-  // Si elle n'existe pas encore : ALTER TABLE devis ADD COLUMN traite boolean DEFAULT false;
   async function toggleTraite(id, valeurActuelle) {
-    const { error } = await supabase
-      .from('devis')
-      .update({ traite: !valeurActuelle })
-      .eq('id', id)
-    if (!error) setDevis(prev =>
-      prev.map(d => d.id === id ? { ...d, traite: !valeurActuelle } : d)
+    await fetch(`/api/admin-devis?id=${id}`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ traite: !valeurActuelle })
+    })
+    setDevis(prev =>
+      prev.map(d => d.id === id ? { ...d, traite: valeurActuelle ? 0 : 1 } : d)
     )
   }
 
