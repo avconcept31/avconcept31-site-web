@@ -59,7 +59,7 @@ export default function Home() {
     <text fontFamily="Syne, sans-serif" fontWeight="700" fontSize="36" fill="currentColor" x="81" y="36" letterSpacing="-1">oncept</text>
     <text fontFamily="Syne, sans-serif" fontWeight="700" fontSize="36" fill="currentColor" x="50" y="36" letterSpacing="-1">C</text>
     <text fontFamily="Syne, sans-serif" fontWeight="800" fontSize="36" fill="#e07b2a" x="200" y="36">31</text>
-    <line x1="224" y1="44" x2="258" y2="44" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
+    <line x1="218" y1="44" x2="258" y2="44" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
     <line x1="258" y1="44" x2="258" y2="54" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
     <line x1="258" y1="54" x2="270" y2="54" stroke="#e07b2a" strokeWidth="2.5" strokeLinecap="round"/>
     <circle cx="270" cy="54" r="6" fill="#e07b2a"/>
